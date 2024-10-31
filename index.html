@@ -29,11 +29,19 @@
 
   //create an example stimulus
   // we're defining an Object/ dictionary so that we can also store important condition and stimulus information. What else could we add here?
-  stimulus_item = {
+  stimulus_item_sub = {
     image_name: "stimuli/c3_sub1.jpg",
     condition: "1-item",
     category: "animals",
   }
+
+  stimulus_item_sup = {
+    image_name: "stimuli/c1_sup1.jpg",
+    condition: "1-item",
+    category: "vegetables",
+  }
+
+  
 
   //define the images that will always appear in the grid
   // TO DO: How can we randomize their positions on each trial in the timeline? (right now they are organized by category, which is probably not ideal!)
@@ -64,6 +72,17 @@
     "stimuli/c3_sup6.jpg"
     ];
 
+  // Shuffle function using Fisher-Yates algorithm
+function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+// Randomize positions in each trial
+shuffle(grid_image_names);
+
   //create an array of images formatted in html based on the array of grid images
   var grid_images = [];
   for (i=0; i<grid_image_names.length; i++) {
@@ -74,14 +93,14 @@
 
   // here's how we can construct a simple trial
   // TO DO: what else do we need to add to the trial procedure? How do we need to adjust it depending on the condition? What other information should we store? How can we turn this into a complete experiment timeline?
-  var trial = {
+  var trial_sub = {
     //NOTE: I made some tweaks to the html-button-response plugin to aid in constructing this trial (hence the "adapted" version)
     // The main change is to allow for multiple button selections and adding a final submit button. There is also now the ability to select and unselect choices.
     // the data output is an array of items selected and unselected, as well as the final array of choices (the main DV)
     // other parameters used for the html-button-response-plugin should work
     // Let me know if you run into any issues using it!
         type: jsPsychHtmlButtonResponseAdapted,
-        stimulus: '<img src="'+stimulus_item['image_name']+'" style="width:300px;height:300px;"><p>Here is a tob. Can you give Mr. Frog all the other tobs?</p><p>Click on all of the tobs below, then click the Next button when you are done selecting all the tobs.</p>',
+        stimulus: '<img src="'+stimulus_item_sub['image_name']+'" style="width:300px;height:300px;"><p>Here is a tob. Can you give Mr. Frog all the other tobs?</p><p>Click on all of the tobs below, then click the Next button when you are done selecting all the tobs.</p>',
         //our choices should be the "grid" images we defined above
         choices: grid_image_names,
         // fancy button html to inject html for each button that ensure the choices are displayed as images at a specific size
@@ -95,7 +114,7 @@
         grid_columns: 6,
         //allow multiple button responses
         response_ends_trial: false,
-        data: { condition: stimulus_item['condition'],category: stimulus_item['category'],stimulus_name: stimulus_item['image_name']},
+        data: { condition: stimulus_item_sub['condition'],category: stimulus_item_sub['category'],stimulus_name: stimulus_item_sub['image_name']},
       }
 
       // an alternate strategy: use the survey-multi-select plugin
@@ -115,8 +134,28 @@
     //     data: { condition: stimulus_item['condition'],category: stimulus_item['category'],stimulus_name: stimulus_item['image_name']},
     //   }
 
-  timeline.push(trial);
+  timeline.push(trial_sub);
 
+var trial_sup = {
+  type: jsPsychHtmlButtonResponseAdapted,
+        stimulus: '<img src="'+stimulus_item_sup['image_name']+'" style="width:300px;height:300px;"><p>Here is a wug. Can you give Mr. Frog all the other wugs?</p><p>Click on all of the tobs below, then click the Next button when you are done selecting all the tobs.</p>',
+        //our choices should be the "grid" images we defined above
+        choices: grid_image_names,
+        // fancy button html to inject html for each button that ensure the choices are displayed as images at a specific size
+        button_html:
+     function (choice, choice_index) {
+       return `<button class="jspsych-btn"><img src="${choice}" style="width:100px;height:100px"></button>`;
+     },
+        // we can use the grid row/ column plugin parameters to control appearance. Nice!
+        button_layout: 'grid',
+        grid_rows: 4,
+        grid_columns: 6,
+        //allow multiple button responses
+        response_ends_trial: false,
+        data: { condition: stimulus_item_sup['condition'],category: stimulus_item_sup['category'],stimulus_name: stimulus_item_sup['image_name']},
+      }
+
+  timeline.push(trial_sup);  
 
   /* start the experiment */
   jsPsych.run(timeline);

@@ -77,7 +77,7 @@
     "stimuli/c3_sup6.jpg"
     ];
 
-  // Shuffle function using Fisher-Yates algorithm
+  // Shuffle function using Fisher-Yates algorithm; randomizes the order of the generalization images
 function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -98,6 +98,7 @@ shuffle(grid_image_names);
 
   // here's how we can construct a simple trial
   // TO DO: what else do we need to add to the trial procedure? How do we need to adjust it depending on the condition? What other information should we store? How can we turn this into a complete experiment timeline?
+  //Subordinate Animal trial (tobs)
   var trial_sub1 = {
     //NOTE: I made some tweaks to the html-button-response plugin to aid in constructing this trial (hence the "adapted" version)
     // The main change is to allow for multiple button selections and adding a final submit button. There is also now the ability to select and unselect choices.
@@ -141,6 +142,7 @@ shuffle(grid_image_names);
 
   timeline.push(trial_sub1);
 
+// Subordinate Vegetable trial (wugs)
 var trial_sub2 = {
   type: jsPsychHtmlButtonResponseAdapted,
         stimulus: '<img src="'+stimulus_item_sub2['image_name']+'" style="width:300px;height:300px;"><p>Here is a wug. Can you give Mr. Frog all the other wugs?</p><p>Click on all of the tobs below, then click the Next button when you are done selecting all the tobs.</p>',
@@ -161,7 +163,8 @@ var trial_sub2 = {
       }
   
     timeline.push(trial_sub2);
-    
+
+  // Subordinate Vehicle trial (rifs)
   var trial_sub3 = {
     type: jsPsychHtmlButtonResponseAdapted,
         stimulus: '<img src="'+stimulus_item_sub3['image_name']+'" style="width:300px;height:300px;"><p>Here is a rif. Can you give Mr. Frog all the other rifs?</p><p>Click on all of the tobs below, then click the Next button when you are done selecting all the tobs.</p>',

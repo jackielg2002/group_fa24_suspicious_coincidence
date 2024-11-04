@@ -252,8 +252,6 @@ shuffle(grid_image_names);
     //     data: { condition: stimulus_item['condition'],category: stimulus_item['category'],stimulus_name: stimulus_item['image_name']},
     //   }
 
-  //timeline.push(trial_sub1);
-
 // 1-item Subordinate Vegetable trial (wugs)
 var trial_sub2_1item = {
   type: jsPsychHtmlButtonResponseAdapted,
@@ -273,8 +271,6 @@ var trial_sub2_1item = {
         response_ends_trial: false,
         data: { condition: stimulus_item_main_vehic['condition'],category: stimulus_item_main_vehic['category'],stimulus_name: stimulus_item_main_vehic['image_name']},
       }
-  
-    //timeline.push(trial_sub2);
 
   // 1-item Subordinate Vehicle trial (rifs)
   var trial_sub3_1item = {
@@ -296,8 +292,6 @@ var trial_sub2_1item = {
         data: { condition: stimulus_item_main_anim['condition'],category: stimulus_item_main_anim['category'],stimulus_name: stimulus_item_main_anim['image_name']},
       }
 
-  //timeline.push(trial_sub3);  
-
   /* Randomize the order of the trials */
   var trials = [trial_sub1_1item, trial_sub2_1item, trial_sub3_1item];
   shuffle(trials); // Shuffle the trials array
@@ -314,7 +308,7 @@ var trial_sub1 = {
     <div style="display: flex; justify-content: center; margin-bottom: 10px;">
       <img src="${stimulus_item_main_vehic['image_name']}" style="width:300px;height:300px; margin: 0 10px;">
       <img src="${stimulus_item_sub_veg1['image_name']}" style="width:300px;height:300px; margin: 0 10px;">
-      <img src="${stimulus_item__sub_veg2['image_name']}" style="width:300px;height:300px; margin: 0 10px;">
+      <img src="${stimulus_item_sub_veg2['image_name']}" style="width:300px;height:300px; margin: 0 10px;">
     </div>
     <p>Here is a wug. Can you give Mr. Frog all the other wugs?</p>
     <p>Click on all of the tobs below, then click the Next button when you are done selecting all the tobs.</p>',
@@ -331,7 +325,7 @@ var trial_sub1 = {
         grid_columns: 6,
         //allow multiple button responses
         response_ends_trial: false,
-        data: { condition: stimulus_item_sub2['condition'],category: stimulus_item_sub2['category'],stimulus_name: stimulus_item_sub2['image_name']},
+        //data: { condition: stimulus_item_sub2['condition'],category: stimulus_item_sub2['category'],stimulus_name: stimulus_item_sub2['image_name']},
       }
 
   timeline.push(trial_sub1);  

@@ -323,7 +323,7 @@ var trial_veg_sub1 = {
   // data: { condition: stimulus_item_sub2['condition'], category: stimulus_item_sub2['category'], stimulus_name: stimulus_item_sub2['image_name'] },
 };
 
-//  timeline.push(trial_sub1);  
+timeline.push(trial_veg_sub1);  
 
   // 3-item Basic Vegetable trial (wugs)
 var trial_veg_bas2 = {
@@ -347,6 +347,8 @@ var trial_veg_bas2 = {
   // data: { condition: stimulus_item_sub2['condition'], category: stimulus_item_sub2['category'], stimulus_name: stimulus_item_sub2['image_name'] },
 };
 
+timeline.push(trial_veg_bas2);  
+
   // 3-item Superordinate Vegetable trial (wugs)
 var trial_veg_sup3 = {
   type: jsPsychHtmlButtonResponseAdapted,
@@ -368,6 +370,8 @@ var trial_veg_sup3 = {
   response_ends_trial: false,
   // data: { condition: stimulus_item_sub2['condition'], category: stimulus_item_sub2['category'], stimulus_name: stimulus_item_sub2['image_name'] },
 };
+
+  timeline.push(trial_veg_sup3);  
 
   // 3-item Subordinate Vehicle trial (wugs)
 var trial_vehic_sub4 = {
@@ -391,6 +395,8 @@ var trial_vehic_sub4 = {
   // data: { condition: stimulus_item_sub2['condition'], category: stimulus_item_sub2['category'], stimulus_name: stimulus_item_sub2['image_name'] },
 };
 
+  timeline.push(trial_vehic_sub4);  
+
   // 3-item Basic Vehicle trial (wugs)
 var trial_vehic_bas5 = {
   type: jsPsychHtmlButtonResponseAdapted,
@@ -412,6 +418,8 @@ var trial_vehic_bas5 = {
   response_ends_trial: false,
   // data: { condition: stimulus_item_sub2['condition'], category: stimulus_item_sub2['category'], stimulus_name: stimulus_item_sub2['image_name'] },
 };
+
+  timeline.push(trial_vehic_bas5);  
 
   // 3-item Superordinate Vehicle trial (wugs)
 var trial_vehic_sup6 = {
@@ -435,14 +443,16 @@ var trial_vehic_sup6 = {
   // data: { condition: stimulus_item_sub2['condition'], category: stimulus_item_sub2['category'], stimulus_name: stimulus_item_sub2['image_name'] },
 };
 
-/* Randomize the order of the 3-item trials */
-  var trials2 = [trial_veg_sub1, trail_veg_bas2, trial_veg_sup3, trial_veg_sub4, trial_vehic_bas5, trial_vehic_sup6];
-  shuffle(trials2); // Shuffle the trials array
+  timeline.push(trial_vehic_sup6);  
 
-  // Push randomized trials to the timeline
-  for (var i = 0; i < trials2.length; i++) {
-    timeline.push(trials2[i]);
-  }
+// /* Randomize the order of the 3-item trials */
+//   var trials2 = [trial_veg_sub1, trail_veg_bas2, trial_veg_sup3, trial_veg_sub4, trial_vehic_bas5, trial_vehic_sup6];
+//   shuffle(trials2); // Shuffle the trials array
+
+//   // Push randomized trials to the timeline
+//   for (var i = 0; i < trials2.length; i++) {
+//     timeline.push(trials2[i]);
+//   }
  
   /* start the experiment */
   jsPsych.run(timeline);

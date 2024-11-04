@@ -304,29 +304,24 @@ var trial_sub2_1item = {
   // 3-item Subordinate Vegetable trial (wugs)
 var trial_sub1 = {
   type: jsPsychHtmlButtonResponseAdapted,
-        stimulus: `
+  stimulus: `
     <div style="display: flex; justify-content: center; margin-bottom: 10px;">
       <img src="${stimulus_item_main_vehic['image_name']}" style="width:300px;height:300px; margin: 0 10px;">
       <img src="${stimulus_item_sub_veg1['image_name']}" style="width:300px;height:300px; margin: 0 10px;">
       <img src="${stimulus_item_sub_veg2['image_name']}" style="width:300px;height:300px; margin: 0 10px;">
     </div>
     <p>Here is a wug. Can you give Mr. Frog all the other wugs?</p>
-    <p>Click on all of the tobs below, then click the Next button when you are done selecting all the tobs.</p>',
-        //our choices should be the "grid" images we defined above
-        choices: grid_image_names,
-        // fancy button html to inject html for each button that ensure the choices are displayed as images at a specific size
-        button_html:
-     function (choice, choice_index) {
-       return `<button class="jspsych-btn"><img src="${choice}" style="width:100px;height:100px"></button>`;
-     },
-        // we can use the grid row/ column plugin parameters to control appearance. Nice!
-        button_layout: 'grid',
-        grid_rows: 4,
-        grid_columns: 6,
-        //allow multiple button responses
-        response_ends_trial: false,
-        //data: { condition: stimulus_item_sub2['condition'],category: stimulus_item_sub2['category'],stimulus_name: stimulus_item_sub2['image_name']},
-      }
+    <p>Click on all of the tobs below, then click the Next button when you are done selecting all the tobs.</p>`,
+  choices: grid_image_names,
+  button_html: function (choice, choice_index) {
+    return `<button class="jspsych-btn"><img src="${choice}" style="width:100px;height:100px;"></button>`;
+  },
+  button_layout: 'grid',
+  grid_rows: 4,
+  grid_columns: 6,
+  response_ends_trial: false,
+  // data: { condition: stimulus_item_sub2['condition'], category: stimulus_item_sub2['category'], stimulus_name: stimulus_item_sub2['image_name'] },
+};
 
   timeline.push(trial_sub1);  
 

@@ -140,7 +140,7 @@ shuffle(grid_image_names);
     //     data: { condition: stimulus_item['condition'],category: stimulus_item['category'],stimulus_name: stimulus_item['image_name']},
     //   }
 
-  timeline.push(trial_sub1);
+  //timeline.push(trial_sub1);
 
 // Subordinate Vegetable trial (wugs)
 var trial_sub2 = {
@@ -162,7 +162,7 @@ var trial_sub2 = {
         data: { condition: stimulus_item_sub2['condition'],category: stimulus_item_sub2['category'],stimulus_name: stimulus_item_sub2['image_name']},
       }
   
-    timeline.push(trial_sub2);
+    //timeline.push(trial_sub2);
 
   // Subordinate Vehicle trial (rifs)
   var trial_sub3 = {
@@ -184,7 +184,16 @@ var trial_sub2 = {
         data: { condition: stimulus_item_sub3['condition'],category: stimulus_item_sub3['category'],stimulus_name: stimulus_item_sub3['image_name']},
       }
 
-  timeline.push(trial_sub3);  
+  //timeline.push(trial_sub3);  
+
+  /* Randomize the order of the trials */
+  var trials = [trial_sub1, trial_sub2, trial_sub3];
+  shuffle(trials); // Shuffle the trials array
+
+  // Push randomized trials to the timeline
+  for (var i = 0; i < trials.length; i++) {
+    timeline.push(trials[i]);
+  }
 
   /* start the experiment */
   jsPsych.run(timeline);

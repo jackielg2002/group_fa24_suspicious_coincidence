@@ -46,8 +46,157 @@
     condition: "1-item",
     category: "vehicles",
   }
-  
 
+  // vegetable stimuli
+  stimulus_item_main_veg = {
+    image_name: "stimuli/c1_sub1.jpg",
+    condition: "1-item",
+    category: "vegetables",
+    level: "subordinate",
+  }
+
+  stimulus_item_sub_veg1 = {
+    image_name: "stimuli/c1_sub2.jpg",
+    condition: "3-item",
+    category: "vegetables",
+    level: "subordinate",
+  }
+
+  stimulus_item_sub_veg2 = {
+    image_name: "stimuli/c1_sub3.jpg",
+    condition: "3-item",
+    category: "vegetables",
+    level: "subordinate",
+  }
+
+  stimulus_item_bas_veg1 = {
+    image_name: "stimuli/c1_bas1.jpg",
+    condition: "3-item",
+    category: "vegetables",
+    level: "basic",
+  }
+
+  stimulus_item_bas_veg2 = {
+    image_name: "stimuli/c1_bas2.jpg",
+    condition: "3-item",
+    category: "vegetables",
+    level: "basic",
+  }
+
+  stimulus_item_sup_veg1 = {
+    image_name: "stimuli/c1_sup1.jpg",
+    condition: "3-item",
+    category: "vegetables",
+    level: "superordinate",
+  }
+
+  stimulus_item_sup_veg2 = {
+    image_name: "stimuli/c1_sup2.jpg",
+    condition: "3-item",
+    category: "vegetables",
+    level: "superordinate",
+  }
+
+  // vehicle stimuli
+  stimulus_item_main_vehic = {
+    image_name: "stimuli/c2_sub1.jpg",
+    condition: "1-item",
+    category: "vehicles",
+    level: "subordinate",
+  }
+
+  stimulus_item_sub_vehic1 = {
+    image_name: "stimuli/c2_sub2.jpg",
+    condition: "3-item",
+    category: "vehicles",
+    level: "subordinate",
+  }
+
+  stimulus_item_sub_vehic2 = {
+    image_name: "stimuli/c2_sub3.jpg",
+    condition: "3-item",
+    category: "vehicles",
+    level: "subordinate",
+  }
+
+  stimulus_item_bas_vehic1 = {
+    image_name: "stimuli/c2_bas1.jpg",
+    condition: "3-item",
+    category: "vehicles",
+    level: "basic",
+  }
+
+  stimulus_item_bas_vehic2 = {
+    image_name: "stimuli/c2_bas2.jpg",
+    condition: "3-item",
+    category: "vehicles",
+    level: "basic",
+  }
+
+  stimulus_item_sup_vehic1 = {
+    image_name: "stimuli/c2_sup1.jpg",
+    condition: "3-item",
+    category: "vehicles",
+    level: "superordinate",
+  }
+
+  stimulus_item_sup_vehic2 = {
+    image_name: "stimuli/c2_sup2.jpg",
+    condition: "3-item",
+    category: "vehicles",
+    level: "superordinate",
+  }
+
+  // animal stimuli
+  stimulus_item_main_anim = {
+    image_name: "stimuli/c3_sub1.jpg",
+    condition: "1-item",
+    category: "animals",
+    level: "subordinate",
+  }
+
+  stimulus_item_sub_anim1 = {
+    image_name: "stimuli/c3_sub2.jpg",
+    condition: "3-item",
+    category: "animals",
+    level: "subordinate",
+  }
+
+  stimulus_item_sub_anim2 = {
+    image_name: "stimuli/c3_sub3.jpg",
+    condition: "3-item",
+    category: "animals",
+    level: "subordinate",
+  }
+
+  stimulus_item_bas_anim1 = {
+    image_name: "stimuli/c3_bas1.jpg",
+    condition: "3-item",
+    category: "animals",
+    level: "basic",
+  }
+
+  stimulus_item_bas_anim2 = {
+    image_name: "stimuli/c3_bas2.jpg",
+    condition: "3-item",
+    category: "animals",
+    level: "basic",
+  }
+
+  stimulus_item_sup_anim1 = {
+    image_name: "stimuli/c3_sup1.jpg",
+    condition: "3-item",
+    category: "animals",
+    level: "superordinate",
+  }
+
+  stimulus_item_sup_anim2 = {
+    image_name: "stimuli/c3_sup2.jpg",
+    condition: "3-item",
+    category: "animals",
+    level: "superordinate",
+  }
+  
   //define the images that will always appear in the grid
   // TO DO: How can we randomize their positions on each trial in the timeline? (right now they are organized by category, which is probably not ideal!)
   var grid_image_names = [
@@ -98,15 +247,15 @@ shuffle(grid_image_names);
 
   // here's how we can construct a simple trial
   // TO DO: what else do we need to add to the trial procedure? How do we need to adjust it depending on the condition? What other information should we store? How can we turn this into a complete experiment timeline?
-  //Subordinate Animal trial (tobs)
-  var trial_sub1 = {
+  // 1-item Subordinate Animal trial (tobs)
+  var trial_sub1_1item = {
     //NOTE: I made some tweaks to the html-button-response plugin to aid in constructing this trial (hence the "adapted" version)
     // The main change is to allow for multiple button selections and adding a final submit button. There is also now the ability to select and unselect choices.
     // the data output is an array of items selected and unselected, as well as the final array of choices (the main DV)
     // other parameters used for the html-button-response-plugin should work
     // Let me know if you run into any issues using it!
         type: jsPsychHtmlButtonResponseAdapted,
-        stimulus: '<img src="'+stimulus_item_sub1['image_name']+'" style="width:300px;height:300px;"><p>Here is a tob. Can you give Mr. Frog all the other tobs?</p><p>Click on all of the tobs below, then click the Next button when you are done selecting all the tobs.</p>',
+        stimulus: '<img src="'+stimulus_item_main_veg['image_name']+'" style="width:300px;height:300px;"><p>Here is a tob. Can you give Mr. Frog all the other tobs?</p><p>Click on all of the tobs below, then click the Next button when you are done selecting all the tobs.</p>',
         //our choices should be the "grid" images we defined above
         choices: grid_image_names,
         // fancy button html to inject html for each button that ensure the choices are displayed as images at a specific size
@@ -142,10 +291,10 @@ shuffle(grid_image_names);
 
   //timeline.push(trial_sub1);
 
-// Subordinate Vegetable trial (wugs)
-var trial_sub2 = {
+// 1-item Subordinate Vegetable trial (wugs)
+var trial_sub2_1item = {
   type: jsPsychHtmlButtonResponseAdapted,
-        stimulus: '<img src="'+stimulus_item_sub2['image_name']+'" style="width:300px;height:300px;"><p>Here is a wug. Can you give Mr. Frog all the other wugs?</p><p>Click on all of the tobs below, then click the Next button when you are done selecting all the tobs.</p>',
+        stimulus: '<img src="'+stimulus_item_main_vehic['image_name']+'" style="width:300px;height:300px;"><p>Here is a wug. Can you give Mr. Frog all the other wugs?</p><p>Click on all of the tobs below, then click the Next button when you are done selecting all the tobs.</p>',
         //our choices should be the "grid" images we defined above
         choices: grid_image_names,
         // fancy button html to inject html for each button that ensure the choices are displayed as images at a specific size
@@ -164,10 +313,10 @@ var trial_sub2 = {
   
     //timeline.push(trial_sub2);
 
-  // Subordinate Vehicle trial (rifs)
-  var trial_sub3 = {
+  // 1-item Subordinate Vehicle trial (rifs)
+  var trial_sub3_1item = {
     type: jsPsychHtmlButtonResponseAdapted,
-        stimulus: '<img src="'+stimulus_item_sub3['image_name']+'" style="width:300px;height:300px;"><p>Here is a rif. Can you give Mr. Frog all the other rifs?</p><p>Click on all of the tobs below, then click the Next button when you are done selecting all the tobs.</p>',
+        stimulus: '<img src="'+stimulus_item_main_anim['image_name']+'" style="width:300px;height:300px;"><p>Here is a rif. Can you give Mr. Frog all the other rifs?</p><p>Click on all of the tobs below, then click the Next button when you are done selecting all the tobs.</p>',
         //our choices should be the "grid" images we defined above
         choices: grid_image_names,
         // fancy button html to inject html for each button that ensure the choices are displayed as images at a specific size
@@ -187,13 +336,42 @@ var trial_sub2 = {
   //timeline.push(trial_sub3);  
 
   /* Randomize the order of the trials */
-  var trials = [trial_sub1, trial_sub2, trial_sub3];
+  var trials = [trial_sub1_1item, trial_sub2_1item, trial_sub3_1item];
   shuffle(trials); // Shuffle the trials array
 
   // Push randomized trials to the timeline
   for (var i = 0; i < trials.length; i++) {
     timeline.push(trials[i]);
   }
+
+  // 3-item Subordinate Vegetable trial (wugs)
+var trial_sub1 = {
+  type: jsPsychHtmlButtonResponseAdapted,
+        stimulus: `
+    <div style="display: flex; justify-content: center; margin-bottom: 10px;">
+      <img src="${stimulus_item_main_vehic['image_name']}" style="width:300px;height:300px; margin: 0 10px;">
+      <img src="${stimulus_item_sub_veg1['image_name']}" style="width:300px;height:300px; margin: 0 10px;">
+      <img src="${stimulus_item__sub_veg2['image_name']}" style="width:300px;height:300px; margin: 0 10px;">
+    </div>
+    <p>Here is a wug. Can you give Mr. Frog all the other wugs?</p>
+    <p>Click on all of the tobs below, then click the Next button when you are done selecting all the tobs.</p>',
+        //our choices should be the "grid" images we defined above
+        choices: grid_image_names,
+        // fancy button html to inject html for each button that ensure the choices are displayed as images at a specific size
+        button_html:
+     function (choice, choice_index) {
+       return `<button class="jspsych-btn"><img src="${choice}" style="width:100px;height:100px"></button>`;
+     },
+        // we can use the grid row/ column plugin parameters to control appearance. Nice!
+        button_layout: 'grid',
+        grid_rows: 4,
+        grid_columns: 6,
+        //allow multiple button responses
+        response_ends_trial: false,
+        data: { condition: stimulus_item_sub2['condition'],category: stimulus_item_sub2['category'],stimulus_name: stimulus_item_sub2['image_name']},
+      }
+
+  timeline.push(trial_sub1);  
 
   /* start the experiment */
   jsPsych.run(timeline);

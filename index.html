@@ -29,24 +29,7 @@
 
   //create an example stimulus
   // we're defining an Object/ dictionary so that we can also store important condition and stimulus information. What else could we add here?
-  stimulus_item_sub1 = {
-    image_name: "stimuli/c3_sub1.jpg",
-    condition: "1-item",
-    category: "animals",
-  }
-
-  stimulus_item_sub2 = {
-    image_name: "stimuli/c1_sub1.jpg",
-    condition: "1-item",
-    category: "vegetables",
-  }
-
-  stimulus_item_sub3 = {
-    image_name: "stimuli/c2_sub2.jpg",
-    condition: "1-item",
-    category: "vehicles",
-  }
-
+  
   //vegetable stimuli
   stimulus_item_main_veg = {
     image_name: "stimuli/c1_sub1.jpg",
@@ -325,33 +308,33 @@ var trial_sub2_1item = {
   }
 
   // 3-item Subordinate Vegetable trial (wugs)
-// var trial_sub1 = {
-//   type: jsPsychHtmlButtonResponseAdapted,
-//         stimulus: `
-//     <div style="display: flex; justify-content: center; margin-bottom: 10px;">
-//       <img src="${stimulus_item_main_vehic['image_name']}" style="width:300px;height:300px; margin: 0 10px;">
-//       <img src="${stimulus_item_sub_veg1['image_name']}" style="width:300px;height:300px; margin: 0 10px;">
-//       <img src="${stimulus_item__sub_veg2['image_name']}" style="width:300px;height:300px; margin: 0 10px;">
-//     </div>
-//     <p>Here is a wug. Can you give Mr. Frog all the other wugs?</p>
-//     <p>Click on all of the tobs below, then click the Next button when you are done selecting all the tobs.</p>',
-//         //our choices should be the "grid" images we defined above
-//         choices: grid_image_names,
-//         // fancy button html to inject html for each button that ensure the choices are displayed as images at a specific size
-//         button_html:
-//      function (choice, choice_index) {
-//        return `<button class="jspsych-btn"><img src="${choice}" style="width:100px;height:100px"></button>`;
-//      },
-//         // we can use the grid row/ column plugin parameters to control appearance. Nice!
-//         button_layout: 'grid',
-//         grid_rows: 4,
-//         grid_columns: 6,
-//         //allow multiple button responses
-//         response_ends_trial: false,
-//         data: { condition: stimulus_item_sub2['condition'],category: stimulus_item_sub2['category'],stimulus_name: stimulus_item_sub2['image_name']},
-//       }
+var trial_sub1 = {
+  type: jsPsychHtmlButtonResponseAdapted,
+        stimulus: `
+    <div style="display: flex; justify-content: center; margin-bottom: 10px;">
+      <img src="${stimulus_item_main_vehic['image_name']}" style="width:300px;height:300px; margin: 0 10px;">
+      <img src="${stimulus_item_sub_veg1['image_name']}" style="width:300px;height:300px; margin: 0 10px;">
+      <img src="${stimulus_item__sub_veg2['image_name']}" style="width:300px;height:300px; margin: 0 10px;">
+    </div>
+    <p>Here is a wug. Can you give Mr. Frog all the other wugs?</p>
+    <p>Click on all of the tobs below, then click the Next button when you are done selecting all the tobs.</p>',
+        //our choices should be the "grid" images we defined above
+        choices: grid_image_names,
+        // fancy button html to inject html for each button that ensure the choices are displayed as images at a specific size
+        button_html:
+     function (choice, choice_index) {
+       return `<button class="jspsych-btn"><img src="${choice}" style="width:100px;height:100px"></button>`;
+     },
+        // we can use the grid row/ column plugin parameters to control appearance. Nice!
+        button_layout: 'grid',
+        grid_rows: 4,
+        grid_columns: 6,
+        //allow multiple button responses
+        response_ends_trial: false,
+        data: { condition: stimulus_item_sub2['condition'],category: stimulus_item_sub2['category'],stimulus_name: stimulus_item_sub2['image_name']},
+      }
 
-  // timeline.push(trial_sub1);  
+  imeline.push(trial_sub1);  
 
   /* start the experiment */
   jsPsych.run(timeline);

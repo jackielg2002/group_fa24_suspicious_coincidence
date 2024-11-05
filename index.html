@@ -252,10 +252,10 @@ shuffle(grid_image_names);
     //     data: { condition: stimulus_item['condition'],category: stimulus_item['category'],stimulus_name: stimulus_item['image_name']},
     //   }
 
-// 1-item Subordinate Vegetable trial (wugs)
+// 1-item Subordinate Animal trial (wugs)
 var trial_sub2_1item = {
   type: jsPsychHtmlButtonResponseAdapted,
-        stimulus: '<img src="'+stimulus_item_main_veg['image_name']+'" style="width:300px;height:300px;"><p>Here is a wug. Can you give Mr. Frog all the other wugs?</p><p>Click on all of the tobs below, then click the Next button when you are done selecting all the tobs.</p>',
+        stimulus: '<img src="'+stimulus_item_main_anim['image_name']+'" style="width:300px;height:300px;"><p>Here is a wug. Can you give Mr. Frog all the other wugs?</p><p>Click on all of the tobs below, then click the Next button when you are done selecting all the tobs.</p>',
         //our choices should be the "grid" images we defined above
         choices: grid_image_names,
         // fancy button html to inject html for each button that ensure the choices are displayed as images at a specific size
@@ -269,7 +269,7 @@ var trial_sub2_1item = {
         grid_columns: 6,
         //allow multiple button responses
         response_ends_trial: false,
-        data: { condition: stimulus_item_main_vehic['condition'],category: stimulus_item_main_vehic['category'],stimulus_name: stimulus_item_main_vehic['image_name']},
+        data: { condition: stimulus_item_main_anim['condition'],category: stimulus_item_main_anim['category'],stimulus_name: stimulus_item_main_anim['image_name']},
       }
 
   // 1-item Subordinate Vehicle trial (rifs)
@@ -289,7 +289,7 @@ var trial_sub2_1item = {
         grid_columns: 6,
         //allow multiple button responses
         response_ends_trial: false,
-        data: { condition: stimulus_item_main_anim['condition'],category: stimulus_item_main_anim['category'],stimulus_name: stimulus_item_main_anim['image_name']},
+        data: { condition: stimulus_item_main_vehic['condition'],category: stimulus_item_main_vehic['category'],stimulus_name: stimulus_item_main_vehic['image_name']},
       }
 
   /* Randomize the order of the trials */

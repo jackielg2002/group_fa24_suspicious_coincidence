@@ -312,7 +312,7 @@ function shuffle(array) {
   }
 
   /* 3-ITEM SUBORDINATE TRIALS*/
-  // 3-item Subordinate Vegetable trial (tob)
+  // TRIAL 1: 3-item Subordinate Vegetable trial (tob)
   var trial_veg_sub1 = {
     type: jsPsychHtmlButtonResponseAdapted,
       stimulus: `
@@ -337,7 +337,7 @@ function shuffle(array) {
 
   timeline.push(trial_veg_sub1);  
 
-  // 3-item Basic Vegetable trial (fep)
+  // TRIAL 2: 3-item Basic Vegetable trial (fep)
   var trial_veg_bas2 = {
     type: jsPsychHtmlButtonResponseAdapted,
       stimulus: `
@@ -361,7 +361,7 @@ function shuffle(array) {
 
   timeline.push(trial_veg_bas2);
 
-  // 3-item Superordinate Vegetable trial (mep)
+  // TRIAL 3: 3-item Superordinate Vegetable trial (mep)
   var trial_veg_sup3 = {
     type: jsPsychHtmlButtonResponseAdapted,
       stimulus: `
@@ -385,7 +385,7 @@ function shuffle(array) {
 
   timeline.push(trial_veg_sup3);  
 
-  // 3-item Subordinate Vehicle trial (rif)
+  // TRIAL 4: 3-item Subordinate Vehicle trial (rif)
   var trial_vehic_sub4 = {
     type: jsPsychHtmlButtonResponseAdapted,
       stimulus: `
@@ -409,7 +409,7 @@ function shuffle(array) {
 
   timeline.push(trial_vehic_sub4);  
 
-  // 3-item Basic Vehicle trial (sib)
+  // TRIAL 5: 3-item Basic Vehicle trial (sib)
   var trial_vehic_bas5 = {
     type: jsPsychHtmlButtonResponseAdapted,
       stimulus: `
@@ -433,7 +433,7 @@ function shuffle(array) {
 
   timeline.push(trial_vehic_bas5);  
 
-  // 3-item Superordinate Vehicle trial (zom)
+  // TRIAL 6: 3-item Superordinate Vehicle trial (zom)
   var trial_vehic_sup6 = {
     type: jsPsychHtmlButtonResponseAdapted,
       stimulus: `
@@ -457,7 +457,7 @@ function shuffle(array) {
 
   timeline.push(trial_vehic_sup6);  
 
-  // 3-item Subordinate Animal trial (wugs)
+  // TRIAL 7: 3-item Subordinate Animal trial (wugs)
   var trial_anim_sub7 = {
     type: jsPsychHtmlButtonResponseAdapted,
       stimulus: `
@@ -481,7 +481,7 @@ function shuffle(array) {
 
   timeline.push(trial_anim_sub7);  
 
-  // 3-item Basic Animal trial (rab)
+  // TRIAL 8: 3-item Basic Animal trial (rab)
   var trial_anim_bas8 = {
     type: jsPsychHtmlButtonResponseAdapted,
       stimulus: `
@@ -505,7 +505,7 @@ function shuffle(array) {
 
   timeline.push(trial_anim_bas8);  
 
-  // 3-item Superordinate Vehicle trial (tev)
+  // TRIAL 9: 3-item Superordinate Vehicle trial (tev)
   var trial_anim_sup9 = {
     type: jsPsychHtmlButtonResponseAdapted,
       stimulus: `
@@ -528,6 +528,19 @@ function shuffle(array) {
 };  
 
   timeline.push(trial_anim_sup9);  
+
+  /* Randomize the order of the 1-item trials */
+  var trials2 = [trial_veg_sub1, trial_veg_bas2, trial_veg_sup3, 
+                 trial_vehic_sub4, trial_vehic_bas5, trial_vehic_sup6,
+                 trial_anim_sub7, trial_anim_bas8, trial_anim_sup9
+                ];
+  shuffle(trials2); // Shuffle the trials array
+
+  // Push randomized trials to the timeline
+  for (var i = 0; i < trials2.length; i++) {
+    timeline.push(trials2[i]);
+  }
+
 
   /* start the experiment */
   jsPsych.run(timeline);

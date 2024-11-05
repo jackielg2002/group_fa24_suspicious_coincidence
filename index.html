@@ -302,7 +302,7 @@ var trial_sub2_1item = {
   }
 
   // 3-item Subordinate Vegetable trial (wugs)
-var trial_sub1 = {
+var trial_veg_sub1 = {
   type: jsPsychHtmlButtonResponseAdapted,
   stimulus: `
     <div style="display: flex; justify-content: center; margin-bottom: 10px;">
@@ -323,7 +323,31 @@ var trial_sub1 = {
   // data: { condition: stimulus_item_sub2['condition'], category: stimulus_item_sub2['category'], stimulus_name: stimulus_item_sub2['image_name'] },
 };
 
-  timeline.push(trial_sub1);  
+  timeline.push(trial_veg_sub1);  
+
+  // 3-item Basic Vegetable trial (wugs)
+var trial_veg_bas2 = {
+  type: jsPsychHtmlButtonResponseAdapted,
+  stimulus: `
+    <div style="display: flex; justify-content: center; margin-bottom: 10px;">
+      <img src="${stimulus_item_main_veg['image_name']}" style="width:300px;height:300px; margin: 0 10px;">
+      <img src="${stimulus_item_bas_veg1['image_name']}" style="width:300px;height:300px; margin: 0 10px;">
+      <img src="${stimulus_item_bas_veg2['image_name']}" style="width:300px;height:300px; margin: 0 10px;">
+    </div>
+    <p>Here is a wug. Can you give Mr. Frog all the other wugs?</p>
+    <p>Click on all of the tobs below, then click the Next button when you are done selecting all the tobs.</p>`,
+  choices: grid_image_names,
+  button_html: function (choice, choice_index) {
+    return `<button class="jspsych-btn"><img src="${choice}" style="width:100px;height:100px;"></button>`;
+  },
+  button_layout: 'grid',
+  grid_rows: 4,
+  grid_columns: 6,
+  response_ends_trial: false,
+  // data: { condition: stimulus_item_sub2['condition'], category: stimulus_item_sub2['category'], stimulus_name: stimulus_item_sub2['image_name'] },
+};
+
+  timeline.push(trial_veg_bas2);  
 
   /* start the experiment */
   jsPsych.run(timeline);

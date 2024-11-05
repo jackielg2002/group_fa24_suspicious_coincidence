@@ -265,7 +265,7 @@ function shuffle(array) {
   // TRIAL 2: 1-item Subordinate Animal trial (wug)
   var trial_sub2_1item = {
     type: jsPsychHtmlButtonResponseAdapted,
-      stimulus: `<img src="'+stimulus_item_main_anim['image_name']+'" style="width:300px;height:300px;">
+      stimulus: `<img src="${stimulus_item_main_anim['image_name']}" style="width:300px;height:300px;">
         <p>Here is a wug. Can you give Mr. Frog all the other wugs?</p>
         <p>Click on all of the wugs below, then click the Submit button when you are done selecting all the wugs.</p>`,
         choices: grid_image_names,
@@ -283,7 +283,7 @@ function shuffle(array) {
   // TRIAL 3: 1-item Subordinate Vehicle trial (rif)
   var trial_sub3_1item = {
     type: jsPsychHtmlButtonResponseAdapted,
-        stimulus: `<img src="'+stimulus_item_main_vehic['image_name']+'" style="width:300px;height:300px;">
+        stimulus: `<img src="${stimulus_item_main_vehic['image_name']}" style="width:300px;height:300px;">
           <p>Here is a rif. Can you give Mr. Frog all the other rifs?</p>
           <p>Click on all of the rifs below, then click the Submit button when you are done selecting all the rifs.</p>`,
         //our choices should be the "grid" images we defined above

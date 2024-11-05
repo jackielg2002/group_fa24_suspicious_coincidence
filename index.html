@@ -203,7 +203,8 @@ shuffle(grid_image_names);
   //create an array of images formatted in html based on the array of grid images
   var grid_images = [];
   for (i=0; i<grid_image_names.length; i++) {
-    grid_images.push('<img src="'+grid_image_names[i]+'" style="width:100px;height:100px;">')
+    grid_images.push('<img src="'+grid_image_names[i]+'" style="width:100px;height:100px;">'),
+      
   };
 
   console.log(grid_images)
@@ -323,6 +324,27 @@ var trial_sub1 = {
   // data: { condition: stimulus_item_sub2['condition'], category: stimulus_item_sub2['category'], stimulus_name: stimulus_item_sub2['image_name'] },
 };
 
+  // 3-item Subordinate Vehicle trial (rifs)
+var trial_sub3 = {
+  type: jsPsychHtmlButtonResponseAdapted,
+  stimulus: `
+    <div style="display: flex; justify-content: center; margin-bottom: 10px;">
+      <img src="${stimulus_item_main_vehic['image_name']}" style="width:300px;height:300px; margin: 0 10px;">
+      <img src="${stimulus_item_sub_vehic1['image_name']}" style="width:300px;height:300px; margin: 0 10px;">
+      <img src="${stimulus_item_sub_vehic2['image_name']}" style="width:300px;height:300px; margin: 0 10px;">
+    </div>
+    <p>Here is a rif. Can you give Mr. Frog all the other rifs?</p>
+    <p>Click on all of the tobs below, then click the Next button when you are done selecting all the tobs.</p>`,
+  choices: grid_image_names,
+  button_html: function (choice, choice_index) {
+    return `<button class="jspsych-btn"><img src="${choice}" style="width:100px;height:100px;"></button>`;
+  },
+  button_layout: 'grid',
+  grid_rows: 4,
+  grid_columns: 6,
+  response_ends_trial: false,
+
+  
   timeline.push(trial_sub1);  
 
   /* start the experiment */

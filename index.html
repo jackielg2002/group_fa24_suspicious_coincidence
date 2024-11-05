@@ -201,7 +201,7 @@ function shuffle(array) {
 }
 
   // Randomize positions in each trial
-  // TO DO NOTE: not sure how to have it randomize for each trial? Right now the grid is randomized the same way for each trial throughout the whole experiment. 
+  // *TO DO NOTE*: not sure how to have it randomize for each trial? Right now the grid is randomized the same way for each trial throughout the whole experiment. 
   shuffle(grid_image_names);
 
   //create an array of images formatted in html based on the array of grid images
@@ -214,6 +214,10 @@ function shuffle(array) {
 
   console.log(grid_images)
 
+  // *TO DO NOTE*: right now each trial is its own variable, because it felt easier to construct the experiment this way. 
+  // not sure if we want to end up changing the format to implement just a core trial variable w/ timeline variable like in tutorial 2 (which would be harder to do)
+  // or if we should just leave it as is, since the experiment works
+  
   /* 1-ITEM SUBORDINATE TRIALS*/
   
   // here's how we can construct a simple trial
@@ -331,7 +335,7 @@ function shuffle(array) {
   grid_rows: 4,
   grid_columns: 6,
   response_ends_trial: false,
-  // TO DO NOTE: not sure how to collect data for the 3-item trials, so just commented out "data" line for now
+  // *TO DO NOTE*: not sure how to collect data for the 3-item trials, so just commented out "data" line for now
   // data: { condition: stimulus_item_sub2['condition'], category: stimulus_item_sub2['category'], stimulus_name: stimulus_item_sub2['image_name'] },
 };
 
